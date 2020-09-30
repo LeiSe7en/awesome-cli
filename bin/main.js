@@ -2,16 +2,15 @@
 const commander = require("commander")
 // minimist 是用于parse命令行代码的包 url: 'https://www.npmjs.com/package/minimist'
 const minimist = require('minimist')
-
-commander.version(require('../package').version)
-				  .usage('<command> [options]')
-
-
-// commander
-// 	.command('create <app-name>')
-// 	.description('create a new project')
-// 	.action((name, cmd) => {
-// 		console.log(cmd)
-// 	})
+const {cleanArgs} = require('../lib/utils')
+commander
+	.command('create <app-name>')
+	.description('This is the cli for uniapp Tencent mini-program')
+	.option('-p, --preset <presetName>', 'Skip prompts and use saved or remote preset')
+  .option('-d, --default', 'Skip prompts and use default preset')
+	.action((name, cmd) => {
+		console.log(cmd)
+	})
 
 
+commander.parse(process.argv)
