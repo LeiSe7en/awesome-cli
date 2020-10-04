@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const chalk = require('chalk')
 const clear = require('clear')
 const figlet = require('figlet')
@@ -31,7 +32,7 @@ const getGithubToken = async () => {
 
 const run = async () => {
 	const token = await getGithubToken()
-	
+
 	github.githubAuth(token)
 
 	const url = await repo.createRemoteRepo()
